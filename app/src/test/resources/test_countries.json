@@ -1,0 +1,452 @@
+{
+  "total_items": 232,
+  "total_pages": 5,
+  "links": [
+    {
+      "rel": "self",
+      "href": "/v2/countries?page=1&page_size=50"
+    },
+    {
+      "rel": "first",
+      "href": "/v2/countries?page=1&page_size=50"
+    },
+    {
+      "rel": "next",
+      "href": "/v2/countries?page=2&page_size=50"
+    },
+    {
+      "rel": "last",
+      "href": "/v2/countries?page=5&page_size=50"
+    }
+  ],
+  "items": [
+    {
+      "code": "AR",
+      "name": "Argentina",
+      "residence": true,
+      "features": [
+        "REQUEST_MONEY"
+      ],
+      "disbursement_options": [
+        {
+          "id": "AR_ARS_TOPUP",
+          "mode": "ACTIVE",
+          "country": {
+            "code": "AR",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/AR"
+              }
+            ]
+          },
+          "currency": {
+            "code": "ARS",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/ARS"
+              }
+            ]
+          },
+          "disbursement_type": "TOP_UP",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/AR_ARS_TOPUP"
+            }
+          ]
+        },
+        {
+          "id": "AR_ARS_PICKUP",
+          "mode": "ACTIVE",
+          "country": {
+            "code": "AR",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/AR"
+              }
+            ]
+          },
+          "currency": {
+            "code": "ARS",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/ARS"
+              }
+            ]
+          },
+          "disbursement_type": "PICKUP",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/AR_ARS_PICKUP"
+            }
+          ]
+        },
+        {
+          "id": "AR_ARS_DEPOSIT",
+          "mode": "ACTIVE",
+          "country": {
+            "code": "AR",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/AR"
+              }
+            ]
+          },
+          "currency": {
+            "code": "ARS",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/ARS"
+              }
+            ]
+          },
+          "disbursement_type": "DEPOSIT",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/AR_ARS_DEPOSIT"
+            }
+          ]
+        }
+      ],
+      "links": [
+        {
+          "rel": "self",
+          "href": "/v2/countries/AR"
+        }
+      ]
+    },
+    {
+      "code": "CR",
+      "name": "Costa Rica",
+      "residence": true,
+      "features": [
+        "REQUEST_MONEY"
+      ],
+      "disbursement_options": [
+        {
+          "id": "CR_CRC_TOPUP",
+          "mode": "ACTIVE",
+          "country": {
+            "code": "CR",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/CR"
+              }
+            ]
+          },
+          "currency": {
+            "code": "CRC",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/CRC"
+              }
+            ]
+          },
+          "disbursement_type": "TOP_UP",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/CR_CRC_TOPUP"
+            }
+          ]
+        },
+        {
+          "id": "CR_CRC_BILLPAY",
+          "mode": "ACTIVE",
+          "country": {
+            "code": "CR",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/CR"
+              }
+            ]
+          },
+          "currency": {
+            "code": "CRC",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/CRC"
+              }
+            ]
+          },
+          "disbursement_type": "BILL_PAY",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/CR_CRC_BILLPAY"
+            }
+          ]
+        },
+        {
+          "id": "CR_USD_PICKUP",
+          "mode": "ACTIVE",
+          "country": {
+            "code": "CR",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/CR"
+              }
+            ]
+          },
+          "currency": {
+            "code": "USD",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/USD"
+              }
+            ]
+          },
+          "disbursement_type": "PICKUP",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/CR_USD_PICKUP"
+            }
+          ]
+        },
+        {
+          "id": "CR_USD_DEPOSIT",
+          "mode": "ACTIVE",
+          "country": {
+            "code": "CR",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/CR"
+              }
+            ]
+          },
+          "currency": {
+            "code": "USD",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/USD"
+              }
+            ]
+          },
+          "disbursement_type": "DEPOSIT",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/CR_USD_DEPOSIT"
+            }
+          ]
+        }
+      ],
+      "links": [
+        {
+          "rel": "self",
+          "href": "/v2/countries/CR"
+        }
+      ]
+    },
+    {
+      "code": "DE",
+      "name": "Germany",
+      "residence": true,
+      "features": [
+        "REQUEST_MONEY"
+      ],
+      "disbursement_options": [
+        {
+          "id": "DE_EUR_DEPOSIT",
+          "mode": "ACTIVE",
+          "country": {
+            "code": "DE",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/DE"
+              }
+            ]
+          },
+          "currency": {
+            "code": "EUR",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/EUR"
+              }
+            ]
+          },
+          "disbursement_type": "DEPOSIT",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/DE_EUR_DEPOSIT"
+            }
+          ]
+        }
+      ],
+      "links": [
+        {
+          "rel": "self",
+          "href": "/v2/countries/DE"
+        }
+      ]
+    },
+    {
+      "code": "ES",
+      "name": "Spain",
+      "residence": true,
+      "features": [
+        "REQUEST_MONEY"
+      ],
+      "disbursement_options": [
+        {
+          "id": "ES_EUR_DEPOSIT",
+          "mode": "ACTIVE",
+          "country": {
+            "code": "ES",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/ES"
+              }
+            ]
+          },
+          "currency": {
+            "code": "EUR",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/EUR"
+              }
+            ]
+          },
+          "disbursement_type": "DEPOSIT",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/ES_EUR_DEPOSIT"
+            }
+          ]
+        },
+        {
+          "id": "ES_EUR_TOPUP",
+          "mode": "ACTIVE",
+          "country": {
+            "code": "ES",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/ES"
+              }
+            ]
+          },
+          "currency": {
+            "code": "EUR",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/EUR"
+              }
+            ]
+          },
+          "disbursement_type": "TOP_UP",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/ES_EUR_TOPUP"
+            }
+          ]
+        }
+      ],
+      "links": [
+        {
+          "rel": "self",
+          "href": "/v2/countries/ES"
+        }
+      ]
+    },
+    {
+      "code": "DK",
+      "name": "Denmark",
+      "residence": true,
+      "features": [
+        "REQUEST_MONEY"
+      ],
+      "disbursement_options": [
+        {
+          "id": "DK_DKK_DEPOSIT",
+          "mode": "INACTIVE",
+          "country": {
+            "code": "DK",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/DK"
+              }
+            ]
+          },
+          "currency": {
+            "code": "DKK",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/DKK"
+              }
+            ]
+          },
+          "disbursement_type": "DEPOSIT",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/DK_DKK_DEPOSIT"
+            }
+          ]
+        },
+        {
+          "id": "DK_DKK_DEPOSIT",
+          "mode": "INACTIVE",
+          "country": {
+            "code": "DK",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/countries/DK"
+              }
+            ]
+          },
+          "currency": {
+            "code": "DKK",
+            "links": [
+              {
+                "rel": "self",
+                "href": "/v2/currencies/DKK"
+              }
+            ]
+          },
+          "disbursement_type": "DEPOSIT",
+          "links": [
+            {
+              "rel": "self",
+              "href": "/v2/disbursement-options/DK_DKK_DEPOSIT"
+            }
+          ]
+        }
+      ],
+      "links": [
+        {
+          "rel": "self",
+          "href": "/v2/countries/DK"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_country_item_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/layout_dimen_20"
+    android:paddingBottom="@dimen/layout_dimen_20"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ContentDescription">
+
+    <ImageView
+        android:id="@+id/country_flag_view"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/layout_dimen_16"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="H,2:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/country_name_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/country_name_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_dimen_8"
+        android:layout_marginEnd="@dimen/layout_dimen_8"
+        android:singleLine="false"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/layout_text_dimen_20"
+        app:layout_constraintBottom_toBottomOf="@+id/country_flag_view"
+        app:layout_constraintEnd_toStartOf="@id/fav_button_view"
+        app:layout_constraintStart_toEndOf="@id/country_flag_view"
+        app:layout_constraintTop_toTopOf="@+id/country_flag_view" />
+
+    <ImageButton
+        android:id="@+id/fav_button_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/layout_dimen_16"
+        android:padding="@dimen/layout_dimen_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/country_name_view"
+        app:layout_constraintTop_toTopOf="@+id/country_name_view" />
+
+</android.support.constraint.ConstraintLayout>
