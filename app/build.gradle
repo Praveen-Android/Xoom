@@ -100,6 +100,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     androidTestImplementation "android.arch.core:core-testing:1.1.1"
     testImplementation "android.arch.persistence.room:testing:1.1.1"
-
-    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
 }

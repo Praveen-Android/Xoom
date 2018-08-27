@@ -1,10 +1,8 @@
 package com.praveen.xoom.ui
 
-import com.praveen.xoom.database.CountryDetails
-
 interface OnFavoriteSelected {
 
-    fun saveFavorite(details: CountryDetails)
+    fun saveFavorite(countryCode: String?)
 
-    fun removeFavorite(details: CountryDetails)
+    fun removeFavorite(countryCode: String?)
 }

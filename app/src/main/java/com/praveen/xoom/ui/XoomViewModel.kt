@@ -65,7 +65,6 @@ open class XoomViewModel @Inject constructor(private val mXoomRepository: XoomRe
         )
     }
 
-
     fun saveFavoriteSelection(code: String) {
         mXoomRepository.saveFavorite(code)
     }

@@ -91,12 +91,12 @@ class XoomFragment: Fragment(), OnFavoriteSelected {
     }
 
     // invoked when user favorites a country
-    override fun saveFavorite(details: CountryDetails) {
-        details.countryCode?.let { mViewModel.saveFavoriteSelection(it) }
+    override fun saveFavorite(countryCode: String?) {
+        countryCode?.let { mViewModel.saveFavoriteSelection(it) }
     }
 
     // invoked when user removes a country as favorite
-    override fun removeFavorite(details: CountryDetails) {
-        details.countryCode?.let { mViewModel.removeFavoriteSelection(it) }
+    override fun removeFavorite(countryCode: String?) {
+        countryCode?.let { mViewModel.removeFavoriteSelection(it) }
     }
 }

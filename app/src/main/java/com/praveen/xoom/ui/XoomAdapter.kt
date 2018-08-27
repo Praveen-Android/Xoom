@@ -32,6 +32,25 @@ class XoomAdapter(private val listener: OnFavoriteSelected, private val list: Li
         return list.count()
     }
 
+    /**
+     * Usually this method is used when we have to do a post/delete of user's favorites and then roll back or keep the changes based on the response
+     * We don't do a network call in this case so this method might not be needed (since we do a toggle and not worry about updating it on the server)
+     * Added this method here for enhancement sake
+     */
+    override fun onBindViewHolder(holder: XoomViewHolder, position: Int, payloads: MutableList<Any>) {
+
+        when(payloads.isNotEmpty()){
+            true -> {
+                if(PAYLOAD_FAVORITE in payloads){
+                    holder.favButton.background = mContext.getDrawable(R.drawable.ic_star)
+                }else if(PAYLOAD_NO_FAVORITE in payloads) {
+                    holder.favButton.background = mContext.getDrawable(R.drawable.ic_star_border)
+                }
+            }
+            else -> super.onBindViewHolder(holder, position, payloads)
+        }
+    }
+
     override fun onBindViewHolder(holder: XoomViewHolder, position: Int) {
         val item = list[position]
 
@@ -46,8 +65,8 @@ class XoomAdapter(private val listener: OnFavoriteSelected, private val list: Li
         holder.countryName.text = item.countryName
 
         when(item.isFavorite) {
-            true -> holder.favButton.setBackgroundResource(R.drawable.ic_baseline_star_24px)
-            false -> holder.favButton.setBackgroundResource(R.drawable.ic_baseline_star_border_24px)
+            true -> holder.favButton.setBackgroundResource(R.drawable.ic_star)
+            false -> holder.favButton.setBackgroundResource(R.drawable.ic_star_border)
         }
 
         holder.favButton.setOnClickListener {
@@ -55,13 +74,13 @@ class XoomAdapter(private val listener: OnFavoriteSelected, private val list: Li
             when(item.isFavorite) {
                 true -> {
                     item.isFavorite = false
-                    holder.favButton.setBackgroundResource(R.drawable.ic_baseline_star_border_24px)
-                    listener.removeFavorite(item)
+                    listener.removeFavorite(item.countryCode)
+                    notifyItemChanged(holder.adapterPosition, PAYLOAD_NO_FAVORITE)
                 }
                 false -> {
                     item.isFavorite = true
-                    holder.favButton.setBackgroundResource(R.drawable.ic_baseline_star_24px)
-                    listener.saveFavorite(item)
+                    listener.saveFavorite(item.countryCode)
+                    notifyItemChanged(holder.adapterPosition, PAYLOAD_FAVORITE)
                 }
             }
         }
@@ -75,5 +94,7 @@ class XoomAdapter(private val listener: OnFavoriteSelected, private val list: Li
 
     companion object {
         const val IMAGE_SIZE = 64
+        const val PAYLOAD_FAVORITE = "favorite"
+        const val PAYLOAD_NO_FAVORITE = "not_favorite"
     }
 }

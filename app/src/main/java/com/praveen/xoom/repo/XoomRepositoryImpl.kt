@@ -15,43 +15,39 @@ class XoomRepositoryImpl @Inject constructor(private val mApiHelper: ApiHelper,
 
     /**
      * This method does the following:
-     * 1. Check if db has any data to return and if yes then fetch the data from DB
-     * 2. Else fetch the data from the server (api)
-     * 3. Once the data is received, check if the user has any favorites and if yes, prepare the list to have the favorites at the top of the list
-     * followed by other countries
-     *
+     * 1. Check if database has any data to return and if yes then fetch from database
+     * 2. Else, fetch the data from the server (api call)
+     * 3. The data from these calls comes pre ordered by favorites
      */
     override fun fetchCountryCatalog() : Single<List<CountryDetails>> {
 
-        val listOfCountries:Single<List<CountryDetails>> = when(getDbRowCount().blockingGet()>0){
+        return when(getDbRowCount().blockingGet()>0){
             true -> fetchCountryCatalogFromDb()
             else -> fetchCountryCatalogFromApi()
-        }
-
-        val favorites = fetchFavorites()
-        return when(favorites.isEmpty()) {
-
-            true -> listOfCountries
-            false -> {
-                Single.zip(listOfCountries, Single.just(favorites),
-                        BiFunction<List<CountryDetails>,Set<String>, List<CountryDetails>>
-                        {allCountries,favCountries -> ConversionUtils.prepareListWithFavorites(allCountries, favCountries)})
-            }
         }
     }
 
     /**
-     * fetch country catalog from server and save to DB after fetching the data
+     * 1. fetch country catalog from server and save to database after fetching the data
+     * 2. Then return the final list ordered by the favorites
      */
     override fun fetchCountryCatalogFromApi(): Single<List<CountryDetails>> {
         val favorites = fetchFavorites()
 
         return when(favorites.isEmpty()) {
+        /**
+         * 1. Clear the database, fetch the Country Catalog, save it to database after success and return the list
+         */
             true -> {
                  mApiHelper.fetchCountryCatalogFromApi()
                          .doOnSubscribe {clearDb()}
                          .doOnSuccess {saveCountryCatalogToDb(it)}
             }
+        /**
+         * 1. Clear the database, fetch the Country Catalog and save it to database after success
+         * 2. Use the RxJava2 zip operator to get (a) the country data streams from the api call and (b) the list of favorites, then prepare the final
+         * data stream that has the favorite countries at the top of the list.
+         */
             false -> {
                 Single.zip(mApiHelper.fetchCountryCatalogFromApi()
                         .doOnSubscribe {clearDb()}
@@ -67,8 +63,29 @@ class XoomRepositoryImpl @Inject constructor(private val mApiHelper: ApiHelper,
         return mDbHelper.saveCountryCatalogToDb(list)
     }
 
+    /**
+     * 1. fetch country catalog from database and then return the final list ordered by the favorites
+     */
     override fun fetchCountryCatalogFromDb(): Single<List<CountryDetails>> {
-        return mDbHelper.fetchCountryCatalogFromDb()
+        val favorites = fetchFavorites()
+
+        return when(favorites.isEmpty()) {
+        /**
+         * 1. fetch the Country Catalog from database and return the list
+         */
+            true -> mDbHelper.fetchCountryCatalogFromDb()
+
+        /**
+         * 1. fetch the Country Catalog from database
+         * 2. Use the RxJava2 zip operator to get (a) the country data streams from the database and (b) the list of favorites, then prepare the final
+         * data stream that has the favorite countries at the top of the list.
+         */
+            false -> {
+                Single.zip(mDbHelper.fetchCountryCatalogFromDb(), Single.just(favorites),
+                        BiFunction<List<CountryDetails>,Set<String>, List<CountryDetails>>
+                        {allCountries,favCountries -> ConversionUtils.prepareListWithFavorites(allCountries, favCountries)})
+            }
+        }
     }
 
     override fun getDbRowCount(): Single<Int> {
