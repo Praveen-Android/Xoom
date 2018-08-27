@@ -2,7 +2,7 @@
 Application that shows the list of countries that Xoom can send money to
 
 # Use cases this app covers
-1. Show a list of countries that xoom has active disbursements option and give the ability to favorite/remove favorite
+1. Show a list of countries that xoom has active disbursements option and give the ability to toggle a favorite country
 2. On every launch, check whether database has any data saved already in which case, fetch the the list from the database
 2. Prepare the final list with favorites (from Shared preferences) at the top followed by rest of the countries
 3. On data refresh, (tap on refresh icon), delete the existing db, fetch the list from network call and insert them to the db (Query could be optmized based on how frequently the data changes)
